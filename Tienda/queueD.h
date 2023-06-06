@@ -1,11 +1,9 @@
-typedef struct NODE
-{
+typedef struct NODE{
     elemento e;
     struct NODE *next;
 }Node;
 
-typedef struct QUEUE
-{
+typedef struct QUEUE{
     Node *head;
     Node *tail;
 }Queue;
