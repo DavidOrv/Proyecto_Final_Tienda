@@ -1,24 +1,18 @@
 //Alexis no muevas nada pls
+//LunaOn
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include <time.h>
+
 typedef struct Elemento{
     int id;
-    char nombre[50];
+    char nombre[20];
+    char descripcion[100];
     float precio;
     int cantidad;
 }elemento;
-
-typedef struct PRODUCTO{
-    int id;
-    char nombre[50];
-    float precio;
-    int cantidad;
-}producto;
-
-
 
 #include "queueD.h"
 
