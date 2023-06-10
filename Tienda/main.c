@@ -16,8 +16,10 @@ typedef struct Elemento{
 
 #include "queueD.h"
 #include "Lista_p/stack.h"
+#include "funciones_main/lib.h"
 
 int main(){
     printf("Hello World!\n");
+    menu_inicio();
     return 0;
 }
