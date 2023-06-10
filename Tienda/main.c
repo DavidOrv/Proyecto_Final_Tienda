@@ -15,6 +15,7 @@ typedef struct Elemento{
 }elemento;
 
 #include "queueD.h"
+#include "Lista_p/stack.h"
 
 int main(){
     printf("Hello World!\n");
