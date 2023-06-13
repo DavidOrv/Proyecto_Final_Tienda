@@ -1,19 +1,20 @@
 void menu_inicio(){
+    list L;
+    createL(&L);
     int opcion;
     printf("|--------------------------------------|\n");
     printf("|                                      |\n");
-    printf("| By: Gonzales Luna Alexis             |\n");
+    printf("| By: Gonzalez Luna Alexis             |\n");
     printf("| By: Liceaga Cardoso Angel David      |\n");
-    printf("| By: Rodr%cguez Vidals David Osvaldo   |\n",161);
+    printf("| By: Rodr%cguez Vidals David Osvaldo  |\n",161);
     printf("|                                      |\n");
     printf("|--------------------------------------|\n");
-
     printf("Bienvenido, ya cuenta con una cuenta?\n");
     printf("1.- Si\n");
     printf("2.- No\n");
     printf("Escoge una opci%cn: ",162);
     scanf("%d",&opcion);
-    switch(opcion){
+    /*switch(opcion){
         case 1:
             menu_login();
             break;
@@ -25,7 +26,9 @@ void menu_inicio(){
             system("cls");
             menu_inicio();
             break;
-    }
+    }*/
+    llenarLista(&L);
+    showList(&L);
 }
 
 void menu_login(){

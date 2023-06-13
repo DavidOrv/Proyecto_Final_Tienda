@@ -63,3 +63,34 @@ void insertAfterNode(list *L, element e, NodeL *act){
         new->e = e;
     }
 }
+
+void showList(list *L){
+    NodeL *aux;
+    aux = L->head;
+    printf("Productos:\n");
+    while(aux != NULL){
+        printf("%d\n", aux->e.id);
+        printf("%s\n", aux->e.nombre);
+        printf("%d\n", aux->e.cantidad);
+        printf("%f\n\n", aux->e.precio);
+        aux = aux->next;
+    }
+}
+
+void llenarLista(list *L){
+    element e;
+    FILE *f;
+    f = fopen("productos.txt", "r");
+    if(f == NULL){
+        printf("Error al abrir el archivo\n");
+    }else{
+        while(!feof(f)){
+            fscanf(f, "%d\n", &e.id);
+            fgets(e.nombre, 50, f);
+            fscanf(f, "%d\n", &e.cantidad);
+            fscanf(f, "%f\n", &e.precio);
+            insertEnd(L, e);
+        }
+    }
+    fclose(f);
+}

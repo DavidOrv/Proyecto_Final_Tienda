@@ -1,4 +1,10 @@
-typedef int element;
+typedef struct ELEMENTO
+{
+    int id;
+    char nombre[50];
+    int cantidad;
+    float precio;
+}element;
 typedef struct NODOLIST
 {
     element e;
@@ -17,5 +23,7 @@ bool isEmptyL(list *L);
 void insertEnd(list *L, element e);
 void insertBeforeNode(list *L, element e, NodeL *act);
 void insertAfterNode(list *L, element e, NodeL *act);
+void showList(list *L);
+void llenarLista(list *L);
 
 #include "stack.c"

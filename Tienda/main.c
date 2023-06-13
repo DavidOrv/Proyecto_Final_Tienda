@@ -9,8 +9,7 @@
 
 typedef struct Elemento{
     int id;
-    char nombre[20];
-    char descripcion[100];
+    char nombre[70];
     float precio;
     int cantidad;
 }elemento;
