@@ -23,10 +23,11 @@ void enqueue(Queue *q, elemento e){
 }
 
 elemento dequeue(Queue *q){
+    elemento e;
     if (isEmpty(*q))
     {
         printf("La cola esta vacia\n");
-        return -1;
+        return e;
     }else{
         if (q->head->next == NULL)
         {
@@ -34,7 +35,7 @@ elemento dequeue(Queue *q){
         }
         Node *aux = q->head;
         q->head = q->head->next;
-        elemento e = aux->e;
+        e = aux->e;
         free(aux);
         return e;
     }
