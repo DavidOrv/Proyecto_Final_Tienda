@@ -1,7 +1,7 @@
 typedef struct ELEMENTO
 {
     int id;
-    char nombre[50];
+    char nombre[150];
     int cantidad;
     float precio;
 }element;

@@ -69,10 +69,10 @@ void showList(list *L){
     aux = L->head;
     printf("Productos:\n");
     while(aux != NULL){
-        printf("%d\n", aux->e.id);
-        printf("%s\n", aux->e.nombre);
-        printf("%d\n", aux->e.cantidad);
-        printf("%f\n\n", aux->e.precio);
+        printf("ID:%d\n", aux->e.id);
+        printf("Nombre:%s", aux->e.nombre);
+        printf("Cantidad:%d\n", aux->e.cantidad);
+        printf("Precio:%.2f\n\n", aux->e.precio);
         aux = aux->next;
     }
 }
@@ -80,13 +80,13 @@ void showList(list *L){
 void llenarLista(list *L){
     element e;
     FILE *f;
-    f = fopen("productos.txt", "r");
+    f = fopen("Lista_P/productos.txt", "r");
     if(f == NULL){
         printf("Error al abrir el archivo\n");
     }else{
         while(!feof(f)){
             fscanf(f, "%d\n", &e.id);
-            fgets(e.nombre, 50, f);
+            fgets(e.nombre, 150, f);
             fscanf(f, "%d\n", &e.cantidad);
             fscanf(f, "%f\n", &e.precio);
             insertEnd(L, e);
