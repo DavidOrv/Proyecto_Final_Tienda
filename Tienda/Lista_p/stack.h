@@ -25,5 +25,8 @@ void insertBeforeNode(list *L, element e, NodeL *act);
 void insertAfterNode(list *L, element e, NodeL *act);
 void showList(list *L);
 void llenarLista(list *L);
+int getLastId(list *L);
+void freeList(list *L);
+NodeL *deleteProducto(list *L, int id);
 
 #include "stack.c"

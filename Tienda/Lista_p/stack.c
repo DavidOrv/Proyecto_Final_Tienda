@@ -69,10 +69,12 @@ void showList(list *L){
     aux = L->head;
     printf("Productos:\n");
     while(aux != NULL){
+        printf("-------------------------------\n");
         printf("ID:%d\n", aux->e.id);
-        printf("Nombre:%s", aux->e.nombre);
+        printf("Nombre:%s\n", aux->e.nombre);
         printf("Cantidad:%d\n", aux->e.cantidad);
         printf("Precio:%.2f\n\n", aux->e.precio);
+        printf("-------------------------------\n");
         aux = aux->next;
     }
 }
@@ -93,4 +95,26 @@ void llenarLista(list *L){
         }
     }
     fclose(f);
+}
+
+int getLastId(list *L){
+    return L->tail->e.id;
+}
+
+void freeList(list *L){
+    NodeL *aux;
+    while(L->head != NULL){
+        aux = L->head;
+        L->head = L->head->next;
+        free(aux);
+    }
+    L->tail = NULL;
+}
+
+NodeL *deleteProducto(list *L, int id){
+    NodeL* nodo_actual = L->head;
+
+    while(nodo_actual != NULL){
+        
+    }
 }
