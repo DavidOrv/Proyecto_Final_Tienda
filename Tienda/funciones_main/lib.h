@@ -1,5 +1,12 @@
+typedef struct usuario
+{
+    char nombre[55];
+    char password[55];
+}usuario;
+
+
 void menu_inicio();
-void menu_login();
-void menu_registro();
+bool menu_login(usuario *user);
+void menu_admin(list *L);
 
 #include "lib.c"
