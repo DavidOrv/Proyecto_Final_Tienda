@@ -4,7 +4,9 @@ void menu_inicio()
     element new;
     createL(&L);
     llenarLista(&L);
-    int opcion, opc;
+    NodeL *eliminado, *modificado;
+    int opcion, opc, opcID;
+    system("cls");
     printf("|--------------------------------------|\n");
     printf("|                                      |\n");
     printf("| By: Gonzalez Luna Alexis             |\n");
@@ -23,6 +25,7 @@ void menu_inicio()
         // menu del Administrador
         do
         {
+            system("cls");
             printf("Bienvenido Administrador\n");
             printf("1.- Agregar producto\n");
             printf("2.- Eliminar producto\n");
@@ -47,10 +50,55 @@ void menu_inicio()
                 break;
             case 2:
                 // eliminar producto
-                
+                system("cls");
+                printf("%cQue producto desea eliminar?\n",168);
+                showList(&L);
+                printf("Ingresa el ID del producto: ");
+                scanf("%d", &opcID);
+                eliminado = deleteProducto(&L, opcID);
+                if (eliminado != NULL)
+                {
+                    printf("El producto %s ha sido eliminado\n", eliminado->e.nombre);
+                }
+                else
+                {
+                    printf("El producto no existe\n");
+                }
+                printf("Presione cualquier tecla para continuar\n");
+                getch();
+                system("cls");
+                showList(&L);
+                printf("Presione cualquier tecla para continuar\n");
+                getch();
                 break;
             case 3:
                 // modificar producto
+                system("cls");
+                printf("%cQue producto desea modificar?\n",168);
+                showList(&L);
+                printf("Ingresa el ID del producto: ");
+                scanf("%d", &opcID);
+                modificado = shearchProducto(&L, opcID);
+                if (modificado != NULL)
+                {
+                    printf("Ingresa el nuevo nombre del producto: ");
+                    scanf("%s", modificado->e.nombre);
+                    printf("Ingresa el nuevo precio del producto: ");
+                    scanf("%f", &modificado->e.precio);
+                    printf("Ingresa la nueva cantidad del producto: ");
+                    scanf("%d", &modificado->e.cantidad);
+                    updateProducto(&L, opcID, modificado->e);
+                }
+                else
+                {
+                    printf("El producto no existe\n");
+                }
+                printf("Presione cualquier tecla para continuar\n");
+                getch();
+                system("cls");
+                showList(&L);
+                printf("Presione cualquier tecla para continuar\n");
+                getch();
                 break;
             case 4:
                 // ver productos

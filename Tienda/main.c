@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <time.h>
+#include <conio.h>
 #include <windows.h>
 
 typedef struct Elemento{

@@ -28,5 +28,7 @@ void llenarLista(list *L);
 int getLastId(list *L);
 void freeList(list *L);
 NodeL *deleteProducto(list *L, int id);
+void updateProducto(list *L, int id, element e);
+NodeL* shearchProducto(list *L, int id);
 
 #include "stack.c"
