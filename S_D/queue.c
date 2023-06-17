@@ -24,19 +24,14 @@ void enqueue(Queue *q, elemento e){
 
 elemento dequeue(Queue *q){
     elemento e;
-    if (isEmpty(*q))
-    {
-        printf("La cola esta vacia\n");
-        return e;
-    }else{
-        if (q->head->next == NULL)
-        {
+    if (!isEmpty(*q)){
+        if (q->head->next == NULL){
             q->tail = NULL;
         }
         Node *aux = q->head;
         q->head = q->head->next;
         e = aux->e;
-        free(aux);
+        //free(aux);
         return e;
     }
 }
@@ -59,7 +54,7 @@ void show(Queue q){
 void vaciar(Queue *q){
     if (isEmpty(*q))
     {
-        printf("La cola esta vacia\n");
+        //printf("La cola esta vacia\n");
     }else{
         Node *aux = q->head;
         while (aux != NULL)
@@ -71,3 +66,4 @@ void vaciar(Queue *q){
         q->head = q->tail = NULL;
     }
 }
+
