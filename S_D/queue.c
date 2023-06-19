@@ -31,7 +31,7 @@ elemento dequeue(Queue *q){
         Node *aux = q->head;
         q->head = q->head->next;
         e = aux->e;
-        //free(aux);
+        free(aux);
         return e;
     }
 }
