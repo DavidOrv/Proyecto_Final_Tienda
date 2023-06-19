@@ -1,26 +1,28 @@
 void menu_inicio()
 {
     list L;
+    listCarrito carrito;
     usuario user;
     createL(&L);
+    createLC(&carrito);
     llenarLista(&L);
     int opcion;
     do
     {
-    system("cls");
-    printf("|--------------------------------------|\n");
-    printf("|                                      |\n");
-    printf("| By: Gonzalez Luna Alexis             |\n");
-    printf("| By: Liceaga Cardoso Angel David      |\n");
-    printf("| By: Rodr%cguez Vidals David Osvaldo  |\n", 161);
-    printf("|                                      |\n");
-    printf("|--------------------------------------|\n");
-    printf("Bienvenido\n");
-    printf("1.- Administrador\n");
-    printf("2.- Usuario\n");
-    printf("3.- Salir\n");
-    printf("Escoge una opci%cn: ", 162);
-    scanf("%d", &opcion);
+        system("cls");
+        printf("|--------------------------------------|\n");
+        printf("|                                      |\n");
+        printf("| By: Gonzalez Luna Alexis             |\n");
+        printf("| By: Liceaga Cardoso Angel David      |\n");
+        printf("| By: Rodr%cguez Vidals David Osvaldo  |\n", 161);
+        printf("|                                      |\n");
+        printf("|--------------------------------------|\n");
+        printf("Bienvenido\n");
+        printf("1.- Administrador\n");
+        printf("2.- Usuario\n");
+        printf("3.- Salir\n");
+        printf("Escoge una opci%cn: ", 162);
+        scanf("%d", &opcion);
         switch (opcion)
         {
         case 1:
@@ -40,9 +42,12 @@ void menu_inicio()
             else
             {
                 menu_admin(&L);
-                break;
             }
+            break;
         case 2:
+            // menu del Usuario
+            system("cls");
+            menu_usuario(&L, &carrito);
             break;
         default:
             printf("Opci%cn no valida\n", 162);
@@ -161,4 +166,114 @@ void menu_admin(list *L)
         // Menu Usuario
 
     } while (opc != 5);
+}
+
+void menu_usuario(list *L, listCarrito *carrito)
+{
+    int opc, opcAgregar, opcCompra;
+    int IDProducto;
+    element PEncontrado;
+    elementC new;
+    do
+    {
+        printf("Bienvenido Usuario\n");
+        printf("1.- Realizar compras \n");
+        printf("2.- Salir\n");
+        printf("Escoge una opci%cn: ", 162);
+        scanf("%d", &opc);
+        switch (opc)
+        {
+        case 1:
+            // realizar compras
+            system("cls");
+            do
+            {
+                printf("Aqui la lista de los productos en existencia...\n");
+                showList(L);
+                printf("|--------------------------------------------------------|\n");
+                printf("|Desea agregar un producto al carrito? 1.- Si 2.- No|\n");
+                scanf("%d", &opcAgregar);
+                switch (opcAgregar)
+                {
+                case 1:
+                    printf("Ingrese el ID del producto que desea comprar: ");
+                    scanf("%d", &IDProducto);
+                    PEncontrado = searchProduct(IDProducto, L);
+                    if (PEncontrado.id != -1)
+                    {
+                        printf("Producto encontrado\n");
+                        printf("Nombre: %s\n", PEncontrado.nombre);
+                        printf("Precio: %.2f\n", PEncontrado.precio);
+                        printf("Cantidad: %d\n", PEncontrado.cantidad);
+                        printf("Ingrese la cantidad que desea comprar: ");
+                        scanf("%d", &new.cantidad);
+                        if (new.cantidad <= PEncontrado.cantidad)
+                        {
+                            new.id = PEncontrado.id;
+                            strcpy(new.nombre, PEncontrado.nombre);
+                            new.Precio_pieza = PEncontrado.precio;
+                            new.total = new.cantidad *new.Precio_pieza;
+                            insertEndC(carrito, new);
+                            PEncontrado.cantidad -= new.cantidad;
+                            updateProducto(L, PEncontrado.id, PEncontrado);
+                            printf("Producto agregado al carrito\n");
+                        }
+                        else
+                        {
+                            printf("No hay suficientes productos\n");
+                        }
+                    }
+                    else
+                    {
+                        printf("Producto no encontrado\n");
+                    }
+                }
+            } while (opcAgregar != 2);
+            break;
+        case 2:
+            if (isEmptyLC(carrito))
+            {
+                printf("No hay productos en el carrito\n");
+                printf("Gracias por su visita\n");
+            }
+            else
+            {
+                printf("Gracias por su visita\n");
+                printf("Su compra es la siguiente:\n");
+                showListC(carrito);
+                printf("|--------------------------------------------------------|\n");
+                do
+                {
+                    printf("Desea pagar o cancelar la compra? 1.- Pagar 2.- Cancelar\n");
+                    scanf("%d", &opcCompra);
+                    if (opcCompra == 1)
+                    {
+                        printf("Gracias por su compra\n");
+                        printf("Presione cualquier tecla para continuar\n");
+                        getch();
+                        freeListC(carrito);
+                        break;
+                    }
+                    else if (opcCompra == 2)
+                    {
+                        printf("Compra cancelada\n");
+                        printf("Presione cualquier tecla para continuar\n");
+                        getch();
+                        freeListC(carrito);
+                    }
+                    else
+                    {
+                        printf("Opci%cn no valida\n", 162);
+                        printf("Presione cualquier tecla para continuar\n");
+                        getch();
+                    }
+                } while (opcCompra != 1 || opcCompra != 2);
+                break;
+            }
+            break;
+        default:
+            printf("Opci%cn no valida\n", 162);
+            break;
+        }
+    } while (opc != 2);
 }

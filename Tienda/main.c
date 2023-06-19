@@ -8,16 +8,11 @@
 #include <conio.h>
 #include <windows.h>
 
-typedef struct Elemento{
-    int id;
-    char nombre[70];
-    float precio;
-    int cantidad;
-}elemento;
 
-#include "queueD.h"
 #include "Lista_p/stack.h"
+#include "Lista_Carrito/stack_carrito.h"
 #include "funciones_main/lib.h"
+
 
 int main(){
     printf("Hello World!\n");

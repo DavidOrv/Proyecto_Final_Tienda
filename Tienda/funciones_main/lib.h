@@ -8,5 +8,6 @@ typedef struct usuario
 void menu_inicio();
 bool menu_login(usuario *user);
 void menu_admin(list *L);
+void menu_usuario(list *L, listCarrito *carrito);
 
 #include "lib.c"
