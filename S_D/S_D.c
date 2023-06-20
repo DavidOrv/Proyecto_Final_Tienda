@@ -29,7 +29,6 @@ int juego();
 void screen_Color(elemento e, int turno);
 void evaluacion(int color, elemento *e);
 int eleccion_Jugador(Queue *simon, int turno);
-
 void dequeue_Falso(Queue q, int turno);
 
 int main(){
@@ -56,7 +55,6 @@ void instrucciones(){
     printf("\tBienvenido al juego de Simon Dice\n");
     printf("\nTu mision es recordar la secuencia de colores que te mostrare\n");
     printf("y repetirla en el mismo orden\n");
-    printf("\nSi fallas, pierdes\n");
     printf("\nLos colores son:\n1 Rojo\n2 Azul\n3 Morado\n4 Amarillo\n\n");
     printf("Y solo tendras que ingresar el numero de los colores que se mostraron en cada turno\n\n");
     printf("\tComencemos\n\n");
@@ -66,11 +64,10 @@ void instrucciones(){
 
 int juego(){
     elemento e, aux;
-    Queue simon, jugador;
+    Queue simon;
     int color_Ran, turno=0, i, vida, nivel;
 
     create(&simon);
-    create(&jugador);
     screen_Color(e, turno);
     
     do{
@@ -164,9 +161,9 @@ void screen_Color(elemento e, int turno){ //Cambia el color de la consola confor
         system("cls");
     }
     else if(turno > 0 && turno < 5)
-        sleep(3);
-    else if(turno >= 5 && turno < 10)
         sleep(2);
+    else if(turno >= 5 && turno < 10)
+        sleep(1);
     else if(turno >= 10)
         sleep(1);
 }
@@ -204,9 +201,6 @@ void evaluacion(int color, elemento *e){
             e->color_Am = 0;
             break;
         
-        default:
-            printf("\nError\nNumero equivocado.\nPerdiste.\n");
-            break;
     }
 }
 
@@ -277,7 +271,9 @@ void dequeue_Falso(Queue q, int turno){
             //free(aux);
         }
     }
+    //reset
     evaluacion(-5, &e);
+    //imprimir
     screen_Color(e, 10);
 }
 
