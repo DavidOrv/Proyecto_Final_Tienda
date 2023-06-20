@@ -31,6 +31,7 @@ NodeL *deleteProducto(list *L, int id);
 void updateProducto(list *L, int id, element e);
 NodeL* shearchProducto(list *L, int id);
 element searchProduct(int id, list *L);
+void limpiar_Producto(list *L);
 
 
 #include "stack.c"

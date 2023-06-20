@@ -6,6 +6,7 @@ void menu_inicio()
     createL(&L);
     createLC(&carrito);
     llenarLista(&L);
+    limpiar_Producto(&L);
     int opcion;
     do
     {
@@ -52,10 +53,9 @@ void menu_inicio()
         default:
             printf("Opci%cn no valida\n", 162);
             system("cls");
-            menu_inicio();
             break;
         }
-    } while (opcion != 2);
+    } while (opcion != 3);
     freeList(&L);
 }
 
@@ -176,6 +176,7 @@ void menu_usuario(list *L, listCarrito *carrito)
     elementC new;
     do
     {
+        system("cls");
         printf("Bienvenido Usuario\n");
         printf("1.- Realizar compras \n");
         printf("2.- Salir\n");
@@ -188,6 +189,7 @@ void menu_usuario(list *L, listCarrito *carrito)
             system("cls");
             do
             {
+                system("cls");
                 printf("Aqui la lista de los productos en existencia...\n");
                 showList(L);
                 printf("|--------------------------------------------------------|\n");
@@ -196,11 +198,13 @@ void menu_usuario(list *L, listCarrito *carrito)
                 switch (opcAgregar)
                 {
                 case 1:
+                    system("cls");
                     printf("Ingrese el ID del producto que desea comprar: ");
                     scanf("%d", &IDProducto);
                     PEncontrado = searchProduct(IDProducto, L);
                     if (PEncontrado.id != -1)
                     {
+                        system("cls");
                         printf("Producto encontrado\n");
                         printf("Nombre: %s\n", PEncontrado.nombre);
                         printf("Precio: %.2f\n", PEncontrado.precio);
@@ -233,11 +237,13 @@ void menu_usuario(list *L, listCarrito *carrito)
         case 2:
             if (isEmptyLC(carrito))
             {
+                system("cls");
                 printf("No hay productos en el carrito\n");
                 printf("Gracias por su visita\n");
             }
             else
             {
+                system("cls");
                 printf("Gracias por su visita\n");
                 printf("Su compra es la siguiente:\n");
                 showListC(carrito);
@@ -249,6 +255,8 @@ void menu_usuario(list *L, listCarrito *carrito)
                     if (opcCompra == 1)
                     {
                         printf("Gracias por su compra\n");
+                        showListC(carrito);
+                        printf("El total de su compra es: $%d\n", totalCompra(carrito));
                         printf("Presione cualquier tecla para continuar\n");
                         getch();
                         freeListC(carrito);
@@ -258,8 +266,8 @@ void menu_usuario(list *L, listCarrito *carrito)
                     {
                         printf("Compra cancelada\n");
                         printf("Presione cualquier tecla para continuar\n");
-                        getch();
                         freeListC(carrito);
+                        getch();
                     }
                     else
                     {
@@ -267,7 +275,7 @@ void menu_usuario(list *L, listCarrito *carrito)
                         printf("Presione cualquier tecla para continuar\n");
                         getch();
                     }
-                } while (opcCompra != 1 || opcCompra != 2);
+                } while (opcCompra != 2 && opcCompra != 1);
                 break;
             }
             break;

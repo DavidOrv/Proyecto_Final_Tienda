@@ -133,7 +133,7 @@ void freeList(list *L)
 NodeL *deleteProducto(list *L, int id)
 {
     NodeL *nodo_actual = L->head;
-    //Busca el producto a eliminar
+    // Busca el producto a eliminar
     while (nodo_actual != NULL && nodo_actual->e.id != id)
     {
         nodo_actual = nodo_actual->next;
@@ -196,6 +196,21 @@ void updateProducto(list *L, int id, element e)
         {
             aux->e = e;
             break;
+        }
+        aux = aux->next;
+    }
+}
+
+void limpiar_Producto(list *L)
+{
+    NodeL *aux;
+    aux = L->head;
+    while (aux != NULL)
+    {
+        int longitud = strlen(aux->e.nombre);
+        if (aux->e.nombre[longitud - 1] == '\n')
+        {
+            aux->e.nombre[longitud - 1] = '\0';
         }
         aux = aux->next;
     }
