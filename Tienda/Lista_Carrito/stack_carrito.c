@@ -77,10 +77,10 @@ element searchProduct(int id, list *L){
     return e;
 }
 
-int totalCompra(listCarrito *L){
+float totalCompra(listCarrito *L){
     NodeLC *aux;
     aux = L->head;
-    int total = 0;
+    float total = 0;
     while (aux != NULL)
     {
         total += aux->e.total;

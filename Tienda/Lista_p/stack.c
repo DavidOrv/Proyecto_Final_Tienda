@@ -83,6 +83,7 @@ void showList(list *L)
         printf("-------------------------------\n");
         printf("ID:%d\n", aux->e.id);
         printf("Nombre:%s\n", aux->e.nombre);
+        printf("Descripcion:%s\n", aux->e.descripcion);
         printf("Cantidad:%d\n", aux->e.cantidad);
         printf("Precio:%.2f\n\n", aux->e.precio);
         printf("-------------------------------\n");
@@ -105,6 +106,7 @@ void llenarLista(list *L)
         {
             fscanf(f, "%d\n", &e.id);
             fgets(e.nombre, 150, f);
+            fgets(e.descripcion, 150, f);
             fscanf(f, "%d\n", &e.cantidad);
             fscanf(f, "%f\n", &e.precio);
             insertEnd(L, e);
@@ -208,10 +210,16 @@ void limpiar_Producto(list *L)
     while (aux != NULL)
     {
         int longitud = strlen(aux->e.nombre);
-        if (aux->e.nombre[longitud - 1] == '\n')
+        int longitud2 = strlen(aux->e.descripcion);
+        if (aux->e.nombre[longitud - 1] == '\n' )
         {
             aux->e.nombre[longitud - 1] = '\0';
         }
+        if (aux->e.descripcion[longitud2 - 1] == '\n')
+        {
+            aux->e.descripcion[longitud2 - 1] = '\0';
+        }
+
         aux = aux->next;
     }
 }

@@ -25,7 +25,7 @@ void insertEndC(listCarrito *L, elementC e);
 void showListC(listCarrito *L);
 void freeListC(listCarrito *L);
 element searchProduct(int id, list *L);
-int totalCompra(listCarrito *L);
+float totalCompra(listCarrito *L);
 
 
 #include "stack_carrito.c"

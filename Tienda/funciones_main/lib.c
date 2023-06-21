@@ -105,17 +105,15 @@ void menu_admin(list *L)
             if (eliminado != NULL)
             {
                 printf("El producto %s ha sido eliminado\n", eliminado->e.nombre);
+                printf("Presione cualquier tecla para continuar\n");
+                getch();
             }
             else
             {
                 printf("El producto no existe\n");
+                printf("Presione cualquier tecla para continuar\n");
+                getch();
             }
-            printf("Presione cualquier tecla para continuar\n");
-            getch();
-            system("cls");
-            showList(L);
-            printf("Presione cualquier tecla para continuar\n");
-            getch();
             break;
         case 3:
             // modificar producto
@@ -134,17 +132,16 @@ void menu_admin(list *L)
                 printf("Ingresa la nueva cantidad del producto: ");
                 scanf("%d", &modificado->e.cantidad);
                 updateProducto(L, opcID, modificado->e);
+                showList(L);
+                printf("Presione cualquier tecla para continuar\n");
+                getch();
             }
             else
             {
                 printf("El producto no existe\n");
+                printf("Presione cualquier tecla para continuar\n");
+                getch();
             }
-            printf("Presione cualquier tecla para continuar\n");
-            getch();
-            system("cls");
-            showList(L);
-            printf("Presione cualquier tecla para continuar\n");
-            getch();
             break;
         case 4:
             // ver productos
@@ -160,11 +157,9 @@ void menu_admin(list *L)
         default:
             printf("Opci%cn no valida\n", 162);
             system("cls");
-            menu_inicio();
             break;
         }
         // Menu Usuario
-
     } while (opc != 5);
 }
 
@@ -179,7 +174,7 @@ void menu_usuario(list *L, listCarrito *carrito)
         system("cls");
         printf("Bienvenido Usuario\n");
         printf("1.- Realizar compras \n");
-        printf("2.- Salir\n");
+        printf("2.- Pagar o Cancelar Carrito\n");
         printf("Escoge una opci%cn: ", 162);
         scanf("%d", &opc);
         switch (opc)
@@ -221,15 +216,22 @@ void menu_usuario(list *L, listCarrito *carrito)
                             PEncontrado.cantidad -= new.cantidad;
                             updateProducto(L, PEncontrado.id, PEncontrado);
                             printf("Producto agregado al carrito\n");
+                            printf("Presione cualquier tecla para continuar\n");
+                            getch();
                         }
                         else
                         {
                             printf("No hay suficientes productos\n");
+                            printf("Presione cualquier tecla para continuar\n");
+                            getch();
                         }
                     }
                     else
                     {
+                        
                         printf("Producto no encontrado\n");
+                        printf("Presione cualquier tecla para continuar\n");
+                        getch();
                     }
                 }
             } while (opcAgregar != 2);
@@ -240,6 +242,8 @@ void menu_usuario(list *L, listCarrito *carrito)
                 system("cls");
                 printf("No hay productos en el carrito\n");
                 printf("Gracias por su visita\n");
+                printf("Presione cualquier tecla para continuar\n");
+                getch();
             }
             else
             {
@@ -256,7 +260,7 @@ void menu_usuario(list *L, listCarrito *carrito)
                     {
                         printf("Gracias por su compra\n");
                         showListC(carrito);
-                        printf("El total de su compra es: $%d\n", totalCompra(carrito));
+                        printf("El total de su compra es: $%.2f\n", totalCompra(carrito));
                         printf("Presione cualquier tecla para continuar\n");
                         getch();
                         freeListC(carrito);

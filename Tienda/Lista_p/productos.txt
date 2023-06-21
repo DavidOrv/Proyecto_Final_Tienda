@@ -1,74 +1,89 @@
 1
-AXION 1.5L
+Arroz Blanco
+Arroz de grano largo y pulido.
 50
-28.5
+25.99
 
 2
-LECHE SANTA CLARA 1L
-20
-30.5
+Frijoles Negros
+Frijoles negros enlatados, listos para consumir.
+30
+18.99
 
 3
-SHAMPOO HOMBRE
-35
-40.99
+Pasta de Tomate
+Pasta concentrada de tomate en lata.
+20
+12.99
 
 4
-SHAMPOO PAJARAS
-40
-45.89
+Aceite de Oliva
+Aceite de oliva virgen extra, prensado en frio.
+15
+59.99
 
 5
-SHAMPOO SEDAL
-45
-50.79
+Harina de Trigo
+Harina de trigo todo uso, ideal para hornear.
+40
+22.50
 
 6
-GALLETAS OREO
-50
-55.69
+Azucar Blanca
+Azucar blanca granulada, apta para uso domestico.
+35
+16.99
 
 7
-GALLETAS CHOKIS
-30
-20.50
+Sal de Mesa
+Sal de mesa fina, para sazonar tus comidas.
+45
+7.50
 
 8
-LECHE SANTA CLARA 1L
-20
-30.5
+Leche en Polvo
+Leche en polvo descremada, rica en calcio.
+25
+32.99
 
 9
-CREMA SANTA CLARA
-15
-45.50
+Cafe Molido
+Cafe molido 100% arabica, sabor intenso.
+10
+45.99
 
 10
-RUFFLES
-25
-18.50
+Te Verde
+Te verde natural, con propiedades antioxidantes.
+20
+18.75
 
 11
-RUFFLES QUESO
-25
-18.50
+Galletas Saladas
+Galletas saladas ideales para acompañar tus aperitivos.
+50
+12.99
 
 12
-SABRITAS ADOBADAS
-25
-18.50
+Mermelada de Fresa
+Mermelada de fresa, sin conservantes artificiales.
+15
+27.50
 
 13
-SABRITAS NATURALES
-25
-18.50
+Salsa de Tomate
+Salsa de tomate lista para agregar sabor a tus platos.
+30
+16.99
 
 14
-SABRITAS FUEGO
-25
-18.50
+Vinagre de Manzana
+Vinagre de manzana organico, sin filtrar.
+20
+29.99
 
 15
-CHEETOS
+Cheetos
+Snack crujiente de maiz con sabor a queso.
 25
 17.50
